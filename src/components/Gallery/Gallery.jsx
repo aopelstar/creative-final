@@ -64,9 +64,10 @@ export default class Gallery extends Component {
 
     render(){
         let homeGallery = this.state.data.map( (pics, i) => {
+            let picLarge= pics.url
             return(
-                <div key = {i} className="gallery-photo-container" onClick={ () => window.open( {pics}, "_blank")}>
-                    <img src={pics.url} alt="gallery" className="gallery-photo"/>
+                <div key = {i} className="gallery-photo-container" >
+                    <a href={picLarge} target="_blank"><img src={pics.url} alt="gallery" className="gallery-photo" /></a>
                 </div>
             )
         })
