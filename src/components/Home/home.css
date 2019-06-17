@@ -1,0 +1,26 @@
+.home-main{
+    background-image: url('../../images/utahlake1.jpg');
+    background-color: black;
+    background-position: center;
+    background-size: cover;
+    height: 90vh;
+    width: 100vw;
+    position: fixed;
+}
+
+
+
+.home-text{
+    color: white;
+    font-size: 5vh;
+    display: flex;
+    flex-direction: column;
+    width: 165px;
+    margin: 35px 0px 0px 35px;
+    padding: 4px 0 4px 4px;
+}
+
+.home-text>div{
+    margin: auto;
+    font-family: 'Dancing Script', cursive;
+}
