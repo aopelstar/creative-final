@@ -24,7 +24,11 @@ module.exports = {
     // }
 
     getGallery: (req, res) => {
-        cloudinary.v2.search.expression(req.body.info+'folder:Gallery')
+        var gallery = "folder=Gallery";
+        if(req.body.info!=""){
+            gallery ="folder=Gallery AND "+ req.body.info
+        }
+        cloudinary.v2.search.expression(gallery)
         .with_field('tags')
         .max_results(100)
         .execute().then( response => {

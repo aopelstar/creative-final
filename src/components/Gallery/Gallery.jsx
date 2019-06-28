@@ -11,7 +11,8 @@ export default class Gallery extends Component {
         this.state = {
             search: true,
             searchText: "",
-            data: []
+            data: [],
+            index: 0
         }
     }
 
@@ -39,6 +40,24 @@ export default class Gallery extends Component {
         })
     }
 
+    incrementDown(){
+        if(this.state.index!==0){
+
+            this.setState({
+                index: this.state.index-5
+            })
+        }
+    }
+
+    incrementUp(){
+        if(this.state.index+5 < this.state.data.length){
+
+            this.setState({
+                index: this.state.index+5
+            })
+        }
+    }
+
     submit(val){
         let body = {
             info: this.state.searchText
@@ -63,11 +82,10 @@ export default class Gallery extends Component {
     }
 
     render(){
-        let homeGallery = this.state.data.map( (pics, i) => {
-            let picLarge= pics.url
+        let homeGallery = this.state.data.filter( (pics, i) => i >= this.state.index && i<this.state.index+5).map( (pics, i) => {
             return(
                 <div key = {i} className="gallery-photo-container" >
-                    <a href={picLarge} target="_blank"><img src={pics.url} alt="gallery" className="gallery-photo" /></a>
+                    <a href={pics.url} target="_blank" rel="noopener nonreferrer"><img src={pics.url} alt="gallery" className="gallery-photo" /></a>
                 </div>
             )
         })
@@ -81,6 +99,10 @@ export default class Gallery extends Component {
                 </div>
                 <div className="gallery-photos">
                     {homeGallery}
+                </div>
+                <div className="gallery-carousel">
+                    <div className="left-arrow" onClick={ (e) => this.incrementDown(e.target.value)}>&#10094;</div>
+                    <div className="right-arrow" onClick={ (e) => this.incrementUp(e.target.value)}>&#10095;</div>
                 </div>
 
 
