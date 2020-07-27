@@ -105,13 +105,19 @@ button:focus{
     margin: 0px 20px;
 }
 
-.gallery-carousel{
-    display: flex;
-    justify-content: space-around;
-    margin: 10px 0;
-}
 
 .gallery-carousel>div{
     color: white;
     font-size: 5vh;
+    position: fixed;
+    top: 325px;
+}
+
+
+.left-arrow{
+    left: 20px;
+}
+
+.right-arrow{
+    right: 20px;
 }

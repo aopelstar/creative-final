@@ -85,7 +85,7 @@ export default class Gallery extends Component {
         let homeGallery = this.state.data.filter( (pics, i) => i >= this.state.index && i<this.state.index+5).map( (pics, i) => {
             return(
                 <div key = {i} className="gallery-photo-container" >
-                    <a href={pics.url} target="_blank" rel="noopener nonreferrer"><img src={pics.url} alt="gallery" className="gallery-photo" /></a>
+                    <a href={pics.url} rel="noopener" target="_blank" ><img src={pics.url} alt="gallery" className="gallery-photo"  /></a>
                 </div>
             )
         })
@@ -93,15 +93,17 @@ export default class Gallery extends Component {
             <div className="gallery-main">
                 <img src= {background} className="main-gallery-container" alt=""/>
                 <div className="gallery-types">
-                    <div onClick={() => this.submit('ground')}>Ground</div>
-                    <div onClick={() => this.submit('drone')}>Aerial</div>
-                    <div>Portrait</div>
+                    <div onClick={() => this.submit('ground')}>Location?</div>
+                    <div onClick={() => this.submit('drone')}>Time of Day?</div>
+                    <div>sSeason?</div>
+                </div>
+                <div className="gallery-carousel">
+                    <div className="left-arrow" onClick={ (e) => this.incrementDown(e.target.value)}>&#10094;</div>
                 </div>
                 <div className="gallery-photos">
                     {homeGallery}
                 </div>
                 <div className="gallery-carousel">
-                    <div className="left-arrow" onClick={ (e) => this.incrementDown(e.target.value)}>&#10094;</div>
                     <div className="right-arrow" onClick={ (e) => this.incrementUp(e.target.value)}>&#10095;</div>
                 </div>
 
@@ -113,7 +115,7 @@ export default class Gallery extends Component {
                     <div className="gallery-container">
 
                     <div className="gallery-search-title">
-                        Something Specific In Mind?
+                        Search For A Key Word
                     </div>
                     <div className="gallery-search-bar">
                         <div>
