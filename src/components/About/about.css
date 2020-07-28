@@ -1,4 +1,48 @@
+.about-main{
+    
+    display: flex;
+    flex-direction: column;
+    font-family: 'Dancing Script', cursive;
+    font-size: 4.5vh;
+}
 .about-photo{
     width: 180px;
     height: auto;
 }
+
+.main-about-container{
+    position: fixed;
+    height: 102vh;
+    width: 100vw;
+    z-index: -1;
+    top: 0px;
+
+}
+
+.about-container{
+    display: flex;
+    flex-direction: column;
+
+}
+
+.about-container>div{
+    margin: 15px auto;
+}
+
+.about-desc{
+    background-color: rgb(255, 255, 255, .8);
+    width: 80vw;
+    padding: 5px;
+}
+
+@media(min-width: 750px){
+    .about-photo{
+        width: 350px;
+    }
+
+    .about-desc{
+        padding: 20px;
+    }
+}
+
+

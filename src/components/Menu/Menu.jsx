@@ -15,7 +15,7 @@ export default function Menu() {
                 <div className="menu-items">
                     <Link to ='/gallery'><div>Gallery</div></Link>
                     <Link to='/about'><div>About</div></Link>
-                    <Link to='/prints'><div>E-shop</div></Link>
+                    <Link to='/prints'><div>Eshop</div></Link>
                     <Link to='/contact'><div>Contact</div></Link>
                     <Link to ='/blog'><div>Blog</div></Link>
                 </div>

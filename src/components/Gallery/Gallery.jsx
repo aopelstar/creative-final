@@ -10,6 +10,9 @@ export default class Gallery extends Component {
         super();
         this.state = {
             search: true,
+            location: true,
+            season: true,
+            time: true,
             searchText: "",
             data: [],
             index: 0
@@ -63,14 +66,14 @@ export default class Gallery extends Component {
             info: this.state.searchText
         } 
 
-        if( val === "drone" || val ==="ground"){
-            let promise = axios.post('http://localhost:9876/api/cloudinary', {info: val})
-            promise.then( ( {data} ) => {
-                this.setState({
-                    data: data.resources
-                })
-            })
-        } else {
+        // if( val !== ""){
+        //     let promise = axios.post('http://localhost:9876/api/cloudinary', {info: val})
+        //     promise.then( ( {data} ) => {
+        //         this.setState({
+        //             data: data.resources
+        //         })
+        //     })
+        // } else {
 
             let promise = axios.post('http://localhost:9876/api/cloudinary', body)
             promise.then( ( {data} ) => {
@@ -78,7 +81,7 @@ export default class Gallery extends Component {
                     data: data.resources
                 })
             })
-        }
+        // }
     }
 
     render(){
@@ -92,11 +95,11 @@ export default class Gallery extends Component {
         return(
             <div className="gallery-main">
                 <img src= {background} className="main-gallery-container" alt=""/>
-                <div className="gallery-types">
-                    <div onClick={() => this.submit('ground')}>Location?</div>
+                {/* <div className="gallery-types">
+                    <div onClick={() => this.submit('tree')}>Location?</div>
                     <div onClick={() => this.submit('drone')}>Time of Day?</div>
                     <div>sSeason?</div>
-                </div>
+                </div> */}
                 <div className="gallery-carousel">
                     <div className="left-arrow" onClick={ (e) => this.incrementDown(e.target.value)}>&#10094;</div>
                 </div>
@@ -115,14 +118,14 @@ export default class Gallery extends Component {
                     <div className="gallery-container">
 
                     <div className="gallery-search-title">
-                        Search For A Key Word
+                        Search By Key Word
                     </div>
                     <div className="gallery-search-bar">
                         <div>
                         <input type="text" className="gallery-input" onChange={(e)=>this.searchText(e.target.value)}/>
                         </div>
                     <div>
-                        <button onClick={ () => this.submit()}>Search</button>
+                        <button onClick={ () => this.submit("")}>Search</button>
                     </div>
                     </div>
                     </div>

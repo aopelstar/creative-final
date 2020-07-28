@@ -25,7 +25,7 @@ module.exports = {
 
     getGallery: (req, res) => {
         var gallery = "folder=Gallery";
-        if(req.body.info!=""){
+        if(req.body.info!==""){
             gallery ="folder=Gallery AND "+ req.body.info
         }
         cloudinary.v2.search.expression(gallery)
